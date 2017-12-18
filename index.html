@@ -3,17 +3,54 @@
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+    <link rel="stylesheet" href="./node_modules/vue-material/dist/vue-material.css">      
+    <link rel="stylesheet" href="./bower_components/components-font-awesome/css/font-awesome.min.css">   
   </head>
-  <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-
+  <body> 
+<div id="app">
+    <md-input-container>
+        <label>Initial value</label>
+        <md-input v-model="initialValue"></md-input>
+      </md-input-container>
+    
+      <md-input-container>
+        <label>With label</label>
+        <md-input placeholder="My nice placeholder"></md-input>
+      </md-input-container>  
+    
+      <md-input-container>
+        <label>Number</label>
+        <md-input type="number"></md-input>
+      </md-input-container>
+    
+      <md-input-container>
+        <label>Textarea</label>
+        <md-textarea></md-textarea>
+      </md-input-container>
+    
+      <md-input-container>
+        <label>Disabled</label>
+        <md-input disabled></md-input>
+      </md-input-container>
+    
+      <md-input-container md-clearable>
+        <label>Clearable</label>
+        <md-input v-model="initialValue"></md-input>
+      </md-input-container>     
+      <md-bottom-bar>
+        <md-bottom-bar-item md-iconset="fa fa-history fa-2x">History</md-bottom-bar-item>
+        <md-bottom-bar-item md-iconset="fa fa-star fa-2x" md-active>Favorites</md-bottom-bar-item>
+        <md-bottom-bar-item md-iconset="fa fa-location-arrow fa-2x">Nearby</md-bottom-bar-item>
+      </md-bottom-bar>
+</div>     
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./node_modules/vue-material/dist/vue-material.js"></script> 
     <script>
-      // You can also require other files to run in this process
-      require('./renderer.js')
+      Vue.use(VueMaterial);
+
+      new Vue({
+        el: '#app'
+      })
     </script>
   </body>
 </html>
